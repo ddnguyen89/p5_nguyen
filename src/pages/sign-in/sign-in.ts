@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { OrderPage } from '../order/order';
 import { AuthService } from '../../services/auth';
 import { NgForm } from '@angular/forms';
-import firebase from 'firebase';
+import { AlertController } from 'ionic-angular';
 
 
 @IonicPage()
@@ -13,7 +13,7 @@ import firebase from 'firebase';
 })
 export class SignInPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private authService: AuthService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private authService: AuthService, private alertController: AlertController) {
   }
 
   onOrder(form: NgForm, username) {
@@ -23,6 +23,15 @@ export class SignInPage {
         username = username || ""
         this.navCtrl.push(OrderPage, {data: username})
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        console.log(error)
+      
+        let alert = this.alertController.create({
+          title: error,
+          buttons: ['OK']
+        })
+  
+        alert.present()
+      });
   }
 }
