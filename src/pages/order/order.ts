@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { AuthService } from '../../services/auth';
 import { DisplayPage } from '../display/display';
 
 @IonicPage()
@@ -12,12 +11,11 @@ export class OrderPage {
 
   username: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private authService: AuthService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.username = navParams.get("data");
   }
 
   onLogout() {
-    this.authService.logout();
     this.navCtrl.setRoot(DisplayPage);
   }
 }

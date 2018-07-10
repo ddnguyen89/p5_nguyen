@@ -9,7 +9,6 @@ import { OrderPage } from '../pages/order/order';
 import { MyComponent } from '../components/foo';
 import { SignInPage } from '../pages/sign-in/sign-in';
 import { DisplayPage } from '../pages/display/display';
-import { AuthService } from '../services/auth';
 import { RegisterPage } from '../pages/register/register';
 import { ThankyouPage } from '../pages/thankyou/thankyou';
 
@@ -41,7 +40,6 @@ import { ThankyouPage } from '../pages/thankyou/thankyou';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthService
   ]
 })
 export class AppModule {}

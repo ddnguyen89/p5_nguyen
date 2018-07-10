@@ -20,13 +20,23 @@
           #name></ion-input>
       </ion-item>
       <ion-item>
+        <ion-label fixed>Username</ion-label>
+        <ion-input
+          type="text"
+          ngModel
+          name="username"
+          required
+          placeholder="jdoe"></ion-input>
+      </ion-item>
+      <ion-item>
         <ion-label fixed>Email</ion-label>
         <ion-input
           type="email"
           ngModel
           name="email"
           required
-          placeholder="jdoe@email.com"></ion-input>
+          placeholder="jdoe@email.com"
+          pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label fixed>Phone</ion-label>
@@ -34,7 +44,9 @@
           type="tel"
           ngModel
           name="phone"
-          placeholder="5555555555"></ion-input>
+          placeholder="5555555555"
+          [minlength]="10"
+          [maxlength]="10"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label fixed>Password</ion-label>
